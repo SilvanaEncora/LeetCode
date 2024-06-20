@@ -1,15 +1,15 @@
 class Solution {
     public int minPatches(int[] nums, int n) {
-        long currentSum = 1;
+        long maxSum = 1;
         int patches = 0;
         int i = 0;
         
-        while(currentSum <= n) {
-            if (i < nums.length && nums[i] <= currentSum) {
-                currentSum += nums[i];
+        while(maxSum <= n) {
+            if (i < nums.length && nums[i] <= maxSum) {
+                maxSum += nums[i];
                 i++;
             } else {
-                currentSum += currentSum;
+                maxSum += maxSum;
                 patches++;
             }
         }
